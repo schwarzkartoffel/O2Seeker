@@ -39,7 +39,7 @@ export default class Suppliers extends React.Component {
                     <tbody>
                         {this.state.suppliers.map((supplier, index) =>
                             <tr key={supplier._id}>
-                                <td>{index}</td>
+                                <td>{index + 1}</td>
                                 <td>{supplier.supplierName}</td>
                                 <td>{supplier.phoneNumber}</td>
                                 <td>{supplier.pinCode}</td>

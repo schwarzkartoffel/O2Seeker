@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import { Container, Form, Button } from "react-bootstrap";
 
@@ -40,6 +41,8 @@ export default class AddSupplier extends React.Component {
             phoneNumber: this.state.phoneNumber,
             pinCode: this.state.pinCode
         };
+        axios.post('http://localhost:5000/suppliers/add', newSupplier)
+            .then(res => console.log(res.data));
         console.log('Added new supplier!');
         console.log(newSupplier);
         window.location = '/suppliers';
