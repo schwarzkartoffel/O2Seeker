@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Table } from "react-bootstrap";
+import { Button, ButtonGroup, Container, Table } from "react-bootstrap";
 import axios from "axios";
 
 export default class Suppliers extends React.Component {
@@ -9,6 +9,7 @@ export default class Suppliers extends React.Component {
         this.state = {
             suppliers: []
         };
+        this.onDeleteSupplier = this.onDeleteSupplier.bind(this);
     }
 
     componentDidMount() {
@@ -23,6 +24,37 @@ export default class Suppliers extends React.Component {
             .catch(err => console.log(err));
     }
 
+    onDeleteSupplier(id) {
+        axios.delete('http://localhost:5000/suppliers/' + id)
+            .then(res => {
+                this.setState({
+                    suppliers: this.state.suppliers.filter(sup => sup._id !== id)
+                });
+            })
+            .catch(function (error) {
+                if (error.response) {
+                  // The request was made and the server responded with a status code
+                  // that falls out of the range of 2xx
+                  console.log(error.response.data);
+                  console.log(error.response.status);
+                  console.log(error.response.headers);
+                  alert("Error " + error.response.status + ": " + error.response.statusText);
+                } else if (error.request) {
+                  // The request was made but no response was received
+                  // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+                  // http.ClientRequest in node.js
+                  alert("The server is not responding");
+                  console.log(error.request);
+                } else {
+                  // Something happened in setting up the request that triggered an Error
+                  console.log('Error', error.message);
+                  alert("Oops. There was a problem setting up the request");
+                }
+                console.log(error.config);
+              });
+        
+    }
+
     render() {
         return (
             <Container className="mt-3">
@@ -34,6 +66,7 @@ export default class Suppliers extends React.Component {
                             <th>Supplier Name</th>
                             <th>Phone Number</th>
                             <th>Pin Code</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -43,6 +76,18 @@ export default class Suppliers extends React.Component {
                                 <td>{supplier.supplierName}</td>
                                 <td>{supplier.phoneNumber}</td>
                                 <td>{supplier.pinCode}</td>
+                                <td>
+                                    <ButtonGroup aria-label="EditDelete">
+                                        <Button variant="warning"
+                                        href={"suppliers/edit/" + supplier._id}>
+                                            <i className="fas fa-edit"></i>
+                                        </Button>
+                                        <Button variant="danger">
+                                            <i className="fas fa-trash"
+                                            onClick={() => {this.onDeleteSupplier(supplier._id)}}></i>
+                                        </Button>
+                                    </ButtonGroup>
+                                </td>
                             </tr>
                         )}
                     </tbody>

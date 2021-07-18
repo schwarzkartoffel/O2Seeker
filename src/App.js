@@ -1,5 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Mynavbar from './components/mynavbar.component';
