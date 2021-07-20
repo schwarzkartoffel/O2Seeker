@@ -25,6 +25,12 @@ router.route('/:id').get((req, res) => {
         .catch(err => res.status(400).json("Error : " + err));
 });
 
+router.route('/byPinCode/:pinCode').get((req, res) => {
+    Supplier.find({ pinCode: req.params.pinCode })
+        .then(suppliers => res.json(suppliers))
+        .catch(err => res.status(400).json("Error : " + err));
+});
+
 router.route('/:id').delete((req, res) => {
     Supplier.findByIdAndDelete(req.params.id)
         .then(() => res.json("Supplier deleted."))
