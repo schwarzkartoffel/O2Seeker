@@ -1,4 +1,3 @@
-import { auto } from "@popperjs/core";
 import axios from "axios";
 import React from "react";
 import { Button, Col, Container, Form, Row, Table } from "react-bootstrap";
@@ -84,7 +83,7 @@ export default class Home extends React.Component {
                         </Row>
                     </Form.Group>
                     <Row>
-                        <Col xs={{span: auto}} md={{span: auto, offset: 1}}>
+                        <Col xs={{span: "auto"}} md={{span: "auto", offset: 1}}>
                             <Button variant="primary" type="submit">
                                 Find Supplier
                             </Button>
