@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { Button, Col, Container, Form, Row, Table } from "react-bootstrap";
-import { backendUrl } from "../../shared/baseUrl";
+import { backendUrl } from "../shared/baseUrl";
 
 export default class Home extends React.Component {
     constructor(props) {

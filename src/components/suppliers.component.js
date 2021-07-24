@@ -3,7 +3,7 @@ import { Button, ButtonGroup, Container, Table } from "react-bootstrap";
 import { Loading } from "./loading.component";
 import { ErrorPage } from "./errorpage.component";
 import axios from "axios";
-import { backendUrl } from "../../shared/baseUrl";
+import { backendUrl } from '../shared/baseUrl';
 
 export default class Suppliers extends React.Component {
     constructor(props) {

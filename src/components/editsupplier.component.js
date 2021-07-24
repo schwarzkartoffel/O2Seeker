@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { Container, Form, Button } from "react-bootstrap";
-import { backendUrl } from "../../shared/baseUrl";
+import { backendUrl } from "../shared/baseUrl";
 import { ErrorPage } from "./errorpage.component";
 import { Loading } from "./loading.component";
 
