@@ -1,0 +1,1 @@
+export const baseUrl = "https://o2seeker.herokuapp.com"
