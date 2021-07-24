@@ -4,3 +4,10 @@ node_js:
 script:
   - npm test
   - npm run build
+deploy:
+  provider: heroku
+  api_key:
+    secure: 11253934-1940-410d-bee0-b4e13abf6f6a
+  app: o2seeker
+  on:
+    repo: schwarzkartoffel/O2Seeker
