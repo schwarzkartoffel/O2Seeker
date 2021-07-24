@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { Button, Col, Container, Form, Row, Table } from "react-bootstrap";
+import { backendUrl } from "../../shared/baseUrl";
 
 export default class Home extends React.Component {
     constructor(props) {
@@ -22,7 +23,7 @@ export default class Home extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        axios.get("http://localhost:5000/suppliers/byPinCode/" + this.state.pinCode)
+        axios.get(backendUrl + "/suppliers/byPinCode/" + this.state.pinCode)
             .then(res => {
                 this.setState({
                     suppliers: res.data

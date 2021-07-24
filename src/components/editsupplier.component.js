@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { Container, Form, Button } from "react-bootstrap";
+import { backendUrl } from "../../shared/baseUrl";
 import { ErrorPage } from "./errorpage.component";
 import { Loading } from "./loading.component";
 
@@ -21,7 +22,7 @@ export default class EditSupplier extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/suppliers/' + this.props.match.params.id)
+        axios.get(backendUrl + '/suppliers/' + this.props.match.params.id)
             .then(res => {
                 this.setState({
                     supplierName: res.data.supplierName,
@@ -89,7 +90,7 @@ export default class EditSupplier extends React.Component {
             pinCode: this.state.pinCode
         };
         const id = this.props.match.params.id;
-        axios.post('http://localhost:5000/suppliers/update/' + id, newSupplier)
+        axios.post(backendUrl + '/suppliers/update/' + id, newSupplier)
             .then(res => {
                 console.log(res.data);
                 window.location = '/suppliers';

@@ -3,6 +3,7 @@ import { Button, ButtonGroup, Container, Table } from "react-bootstrap";
 import { Loading } from "./loading.component";
 import { ErrorPage } from "./errorpage.component";
 import axios from "axios";
+import { backendUrl } from "../../shared/baseUrl";
 
 export default class Suppliers extends React.Component {
     constructor(props) {
@@ -17,7 +18,7 @@ export default class Suppliers extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/suppliers/')
+        axios.get(backendUrl + '/suppliers/')
             .then(res => {
                 if (res.data.length > 0) {
                     this.setState({
@@ -62,7 +63,7 @@ export default class Suppliers extends React.Component {
     }
 
     onDeleteSupplier(id) {
-        axios.delete('http://localhost:5000/suppliers/' + id)
+        axios.delete(backendUrl + '/suppliers/' + id)
             .then(res => {
                 this.setState({
                     suppliers: this.state.suppliers.filter(sup => sup._id !== id)
