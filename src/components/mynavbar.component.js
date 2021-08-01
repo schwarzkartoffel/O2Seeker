@@ -2,6 +2,8 @@ import React from "react";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
+import { Button } from "react-bootstrap";
+
 export default class Mynavbar extends React.Component {
     render() {
         return (
@@ -15,6 +17,10 @@ export default class Mynavbar extends React.Component {
                             <Nav.Link href="/suppliers">All Suppliers</Nav.Link>
                             <Nav.Link href="/suppliers/add">Add Supplier</Nav.Link>
                         </Nav>
+                        <Button variant="outline-light" className="align-self-end"
+                        onClick={() => {this.props.toggleLoginModal()}}>
+                            Login
+                        </Button>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
