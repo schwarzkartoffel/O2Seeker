@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Col, Container, Modal, Row, Tab, Tabs } from 'react-bootstrap';
+import { Col, Container, Form, Modal, Row, Tab, Tabs } from 'react-bootstrap';
 
 function LoginSignup({show, toggleModal}) {
 
@@ -32,7 +32,7 @@ function LoginSignup({show, toggleModal}) {
                 </Container>
             </Modal.Header>
             <Modal.Body>
-                <Container className="d-flex justify-content-center">
+                <Container>
                     { loginTab ? <LoginForm /> : <SignupForm /> }
                 </Container>
             </Modal.Body>
@@ -50,13 +50,85 @@ function LoginSignup({show, toggleModal}) {
 
 const LoginForm = () => {
     return (
-        <p>You are in the Login Form</p>
+        <Form>
+            <Form.Group className="mb-3" controlId="formUserName">
+                <Row>
+                    <Col xs={{span: 12}} sm={{span: 2}}>
+                        <Form.Label className="mt-1">
+                            Username
+                        </Form.Label>
+                    </Col>
+                    <Col xs={{span: 12}} sm={{span: 10}}>
+                        <Form.Control type="text" 
+                        placeholder="Enter your Username"
+                        />
+                    </Col>
+                </Row>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formPassWord">
+                <Row>
+                    <Col xs={{span: 12}} sm={{span: 2}}>
+                        <Form.Label className="mt-1">
+                            Password
+                        </Form.Label>
+                    </Col>
+                    <Col xs={{span: 12}} sm={{span: 10}}>
+                        <Form.Control type="password" 
+                        placeholder="Enter your password"
+                        />
+                    </Col>
+                </Row>
+            </Form.Group>
+        </Form>
     );
 }
 
 const SignupForm = () => {
     return (
-        <p>You are in the Signup Form</p>
+        <Form>
+            <Form.Group className="mb-3" controlId="formUserName">
+                <Row>
+                    <Col xs={{span: 12}} sm={{span: 2}}>
+                        <Form.Label className="mt-1">
+                            Username
+                        </Form.Label>
+                    </Col>
+                    <Col xs={{span: 12}} sm={{span: 10}}>
+                        <Form.Control type="text" 
+                        placeholder="Enter your Username"
+                        />
+                    </Col>
+                </Row>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formPassWord">
+                <Row>
+                    <Col xs={{span: 12}} sm={{span: 2}}>
+                        <Form.Label className="mt-1">
+                            Password
+                        </Form.Label>
+                    </Col>
+                    <Col xs={{span: 12}} sm={{span: 10}}>
+                        <Form.Control type="password" 
+                        placeholder="Enter your password"
+                        />
+                    </Col>
+                </Row>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formConfirmPassWord">
+                <Row>
+                    <Col xs={{span: 12}} sm={{span: 2}}>
+                        <Form.Label>
+                            Confirm Password
+                        </Form.Label>
+                    </Col>
+                    <Col xs={{span: 12}} sm={{span: 10}}>
+                        <Form.Control type="password" 
+                        placeholder="Confirm password"
+                        />
+                    </Col>
+                </Row>
+            </Form.Group>
+        </Form>
     );
 }
 
