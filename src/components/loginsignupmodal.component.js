@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Col, Container, Form, Modal, Row, Tab, Tabs } from 'react-bootstrap';
+import { CSSTransition, SwitchTransition } from 'react-transition-group';
 
 function LoginSignup({show, toggleModal}) {
 
@@ -33,17 +34,24 @@ function LoginSignup({show, toggleModal}) {
             </Modal.Header>
             <Modal.Body>
                 <Container>
-                    { loginTab ? <LoginForm /> : <SignupForm /> }
+                    <SwitchTransition mode="out-in">
+                        <CSSTransition
+                        key={loginTab ? "login" : "signup"}
+                        addEndListener={(node, done) => {node.addEventListener("transitionend", done, false)}}
+                        classNames="fade">
+                            <div>
+                                <div>
+                                    { loginTab ? <LoginForm /> : <SignupForm /> }
+                                </div>
+                                <div className="d-flex justify-content-center">
+                                    {loginTab ? <LoginFormFooterMessage openSignupTab={openSignupTab} />
+                                    : <SignupFormFooterMessage openLoginTab={openLoginTab} /> }
+                                </div>
+                            </div>
+                        </CSSTransition>
+                    </SwitchTransition>
                 </Container>
             </Modal.Body>
-            <Modal.Footer>
-                <Container>
-                    <div className="d-flex justify-content-center">
-                        {loginTab ? <LoginFormFooterMessage openSignupTab={openSignupTab} />
-                            : <SignupFormFooterMessage openLoginTab={openLoginTab} /> }
-                    </div>
-                </Container>
-            </Modal.Footer>
         </Modal>
     );
 }

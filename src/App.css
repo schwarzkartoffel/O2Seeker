@@ -5,3 +5,25 @@
 .modal .modal-footer {
     border: none;
 }
+
+.fade-enter {
+    opacity: 0;
+    transform: translateX(-20%);
+}
+.fade-enter-active {
+    opacity: 1;
+    transform: translateX(0%);
+}
+.fade-exit {
+    opacity: 1;
+    transform: translateX(0%);
+}
+.fade-exit-active {
+    opacity: 0;
+    transform: translateX(20%);
+}
+.fade-enter-active,
+.fade-exit-active {
+    transition: opacity 500ms, transform 500ms;
+}
+  
