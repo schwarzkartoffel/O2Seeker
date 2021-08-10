@@ -10,6 +10,8 @@
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
     "bootstrap": "^5.0.2",
+    "cross-env": "^7.0.3",
+    "custom-env": "^2.0.1",
     "react": "^17.0.2",
     "react-animation-group": "0.0.2",
     "react-bootstrap": "^1.6.1",
@@ -21,7 +23,7 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "dev": "react-scripts start",
+    "dev": "cross-env REACT_APP_ENVIRONMENT='development' react-scripts start",
     "start": "serve -s build",
     "server": "cd backend && nodemon server",
     "build": "react-scripts build",
