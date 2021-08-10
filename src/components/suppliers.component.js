@@ -104,7 +104,7 @@ export default class Suppliers extends React.Component {
             return (
                 <Container className="mt-3">
                     <h3>All suppliers</h3>
-                    <Table striped bordered hover>
+                    <Table striped bordered hover responsive>
                         <thead>
                             <tr>
                                 <th>#</th>
